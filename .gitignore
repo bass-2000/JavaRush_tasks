@@ -1,0 +1,16 @@
+﻿#############
+## Idea
+#############
+target/
+.idea/
+.idea
+.repository/
+*.iml
+*.iws
+*.class
+*.info
+*.properties
+
+/JavaRushPlugin.properties
+/Инструкция.png
+/out.log
