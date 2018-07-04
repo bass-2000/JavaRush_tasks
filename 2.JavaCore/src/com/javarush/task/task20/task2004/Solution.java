@@ -47,11 +47,19 @@ public class Solution {
         public int j;
 
         public void save(OutputStream outputStream) throws Exception {
-            //implement this method - реализуйте этот метод
+            PrintWriter printWriter = new PrintWriter(outputStream);
+            printWriter.println(staticString);
+            printWriter.println(i);
+            printWriter.println(j);
+            printWriter.close();
         }
 
         public void load(InputStream inputStream) throws Exception {
-            //implement this method - реализуйте этот метод
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+            ClassWithStatic.staticString = bufferedReader.readLine();
+            this.i = Integer.parseInt(bufferedReader.readLine());
+            this.j = Integer.parseInt(bufferedReader.readLine());
+            bufferedReader.close();
         }
 
         @Override
