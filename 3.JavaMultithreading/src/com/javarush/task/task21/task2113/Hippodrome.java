@@ -55,9 +55,9 @@ public class Hippodrome {
 
     public static void main(String[] args) throws Exception {
         game = new Hippodrome(new ArrayList<>());
-        game.getHorses().add(new Horse("Kobilka", 3, 0));
-        game.getHorses().add(new Horse("Bobilka", 3, 0));
-        game.getHorses().add(new Horse("Mobilka", 3, 0));
+        game.getHorses().add(new Horse("\uD83D\uDC0E", 3, 0));
+        game.getHorses().add(new Horse("\uD83D\uDC0E", 3, 0));
+        game.getHorses().add(new Horse("\uD83D\uDC0E", 3, 0));
         game.run();
         game.printWinner();
     }
