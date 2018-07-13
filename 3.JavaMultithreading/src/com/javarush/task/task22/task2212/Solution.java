@@ -10,32 +10,21 @@ import java.util.Map;
 */
 public class Solution {
     private static boolean checkTelNumber(String telNumber) {
-        int digitCounter = 0;
-        for (int i = 0; i < telNumber.length(); i++) {
-            if (Character.isDigit(telNumber.charAt(i))) {
-                digitCounter++;
-            }
+        String temp = telNumber;
+        int length = temp.replaceAll("\\D", "").length();
+        if (telNumber.contains("[a-aA-Z]")) {return false;}
+        if (length==12) {
+            return telNumber.matches("(^\\+{1})\\d*(\\(\\d{3}\\))?\\d*(\\-?\\d+)?\\-?\\d*\\d$");
         }
-
-        if(telNumber == null || telNumber.length() ==0)return false;
-
-        if (telNumber.matches("^\\+\\d{12}"))return true;
-
-        if (telNumber.matches("^\\d+-\\d+-\\d+$") && digitCounter == 10) return true;
-
-        if (telNumber.matches("^\\+\\d{2}\\(\\d{3}\\)\\d{7}"))return true;
-
-        if (telNumber.matches("^\\+\\d{8}-\\d{2}-\\d{2}"))return true;
-
-        if (telNumber.matches("^\\d{6}-\\d{4}"))return true;
-        if (telNumber.matches("^\\d{10}"))return true;
-
+        else if (length==10) {
+            return telNumber.matches("^(\\d|\\(\\d{3}\\))\\d*(\\-?\\d+)?\\-?\\d*\\d$");
+        }
         return false;
     }
 
 
-    public static void main (String[]args){
-            HashMap<String, Boolean> phones = new HashMap<>();
+    public static void main(String[] args) {
+        HashMap<String, Boolean> phones = new HashMap<>();
         phones.put("+380501234567",true);
         phones.put("+38(050)1234567-",false);
         phones.put("+38050(123)(456)7",false);
@@ -94,11 +83,12 @@ public class Solution {
         phones.put("222222-2222",true);
         phones.put("(050)34(125)6-7",false);
 
-            for (Map.Entry<String, Boolean> pair : phones.entrySet()) {
-                if (checkTelNumber(pair.getKey()) != pair.getValue())
-                    System.out.println("ERROR:Should be:" + pair.getValue() + " checkTelNumber:" + checkTelNumber(pair.getKey()) + " " + pair.getKey());
-            }
 
+        for (Map.Entry<String, Boolean> pair : phones.entrySet()) {
+            if (checkTelNumber(pair.getKey()) != pair.getValue())
+                System.out.println("ERROR:Should be:" + pair.getValue() + " checkTelNumber:" + checkTelNumber(pair.getKey()) + " " + pair.getKey());
         }
 
     }
+
+}
