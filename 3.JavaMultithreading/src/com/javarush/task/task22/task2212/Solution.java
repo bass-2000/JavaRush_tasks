@@ -9,7 +9,10 @@ import java.util.Map;
 Проверка номера телефона
 */
 public class Solution {
-    private static boolean checkTelNumber(String telNumber) {
+    public static boolean checkTelNumber(String telNumber) {
+        if(telNumber == null || telNumber.isEmpty()){
+            return false;
+        }
         String temp = telNumber;
         int length = temp.replaceAll("\\D", "").length();
         if (telNumber.contains("[a-aA-Z]")) {return false;}
