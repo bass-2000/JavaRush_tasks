@@ -1,12 +1,15 @@
 package com.javarush.task.task36.task3608.model;
 
+import com.javarush.task.task36.task3608.bean.User;
+
+import java.util.List;
+
 public interface Model {
-    public ModelData getModelData();
-
-    public void loadUsers();
-
+    ModelData getModelData();
+    void loadUsers();
     void loadDeletedUsers();
-
     void loadUserById(long userId);
+    void deleteUserById(long id);
+    void changeUserData(String name, long id, int level);
 
 }
