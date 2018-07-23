@@ -25,5 +25,7 @@ public class Solution implements Thread.UncaughtExceptionHandler {
         }
 
     public static void main(String[] args) {
+        Solution solution = new Solution();
+        solution.uncaughtException(new Thread(), new Exception("ABC", new RuntimeException("DEF", new IllegalAccessException("GHI"))));
     }
 }
